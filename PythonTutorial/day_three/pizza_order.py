@@ -16,17 +16,18 @@ total = 0
 # size control
 if size == 'S':
   total += 15
-if size == 'M':
+elif size == 'M':
   total += 20
-if size == 'L':
+elif size == 'L':
   total += 25
 
 # pepporoni control
-if pepperoni == 'Y' and size == 'S':
-  total += 2
-if pepperoni == 'Y' and size == 'M' or size == 'L':
-  total += 3
-  
+if pepperoni == 'Y':
+  if size == 'S':
+    total += 2
+  else:
+    total += 3
+
 # extra cheese control
 if extra_cheese == 'Y':
   total += 1
