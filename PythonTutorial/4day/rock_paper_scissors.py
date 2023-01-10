@@ -2,26 +2,50 @@ import random
 
 print("Welcome to rock, paper, scissors.")
 
-user_sel = input("What do you choose? 'Rock', 'Paper', or 'Scissors'? ").lower()
+rock = '''
+        ____
+    ---' ___)__
+          (____)
+          (____)
+          (___)
+     ---.(___)
+  '''
 
-if user_sel == 'paper':
-  print('''
+paper = '''
         _______
     ---'  _____)____
             ________)
             _________)
           _________)
     ---.________)
-  ''')
+  '''
+
+scissors = '''
+        ____
+    ---' ___)_____
+          ________)
+          ________)
+         (____)
+    ---.(___)
+  '''
+
+user_sel = input("What do you choose? 'Rock', 'Paper', or 'Scissors'? ").lower()
+
+if user_sel == 'paper':
+  print(paper)
 elif user_sel == 'rock':
-  print('''
-        __
-    ---'  )
-    
-  ''')
+  print(rock)
+elif user_sel == 'scissors':
+  print(scissors)
 
 comp_sel = random.randint(0,2)
-print(comp_sel)
+
+if comp_sel == 0:
+  print(f"Computer chose:\n{rock}")
+elif comp_sel == 1:
+  print(f"Computer chose:\n{paper} ")
+elif comp_sel == 2:
+  print(f"Computer chose:\n{scissors}")
 
 # User chooses rock 
 if user_sel == 'rock' and comp_sel == 0:
