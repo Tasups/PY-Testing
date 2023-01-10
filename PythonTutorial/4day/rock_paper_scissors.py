@@ -1,3 +1,8 @@
+# This is a rock, paper, scissors game with the computer that, as I wrote it, takes a string of the
+# actual rock, paper, or scissors and evaluates through each possible choice, however, I could have done
+# this differently and considered using an integer and then compare those, which would have reduced
+# LOC to 6 instead of 10
+
 import random
 
 print("Welcome to rock, paper, scissors.")
