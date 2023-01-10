@@ -75,3 +75,7 @@ elif user_sel == 'scissors' and comp_sel == 1:
   print("You win!")
 elif user_sel == 'scissors' and comp_sel == 2:
   print("It's a draw.")
+  
+# Invalid Choice  
+if user_sel != 'scissors' and user_sel != 'paper' and user_sel != 'rock':
+  print("You entered an invalid choice. Please try again.")
