@@ -7,14 +7,31 @@ chosen_word = random.choice(word_list)
 
 print(f"The solution is: {chosen_word}")
 
-# TODO-2 - Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
-
-guess = input("Guess a letter: ").lower()
-
-# TODO-3 - Check if the letter the user guessed is one of the letters in the chosen_word
+display = []
 
 for letter in chosen_word:
-  if guess == letter:
-    print("Right")
-  else:
-    print("Wrong")
+  display.append("_")
+  
+print(display)
+
+#while letter in display == "_":
+guess = input("Guess a letter: ").lower()
+
+index = 0
+
+# for letter in chosen_word:
+#   if guess == letter:
+#     display[index] = guess
+#     index += 1
+#   else:
+#     print(f"Wrong at index: {index}")
+#     index += 1
+    
+# Alternate for loop to put in the letter
+for position in range(len(chosen_word)):
+  letter = chosen_word[position]
+  if letter == guess:
+    display[position] = letter
+
+    
+print(display)
