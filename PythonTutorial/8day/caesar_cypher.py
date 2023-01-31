@@ -4,32 +4,43 @@
 
 import sys
 
+
+print("THE CAESAR CYPHER ENCODER/DECODER")
 direction = input('Type "encode" to encrypt or "decode" to decrypt a message.\n')
 text =  input('Type your message:\n').lower()
 shift = int(input('Type the number to shift:\n'))
 
-
+  
 def caesar(start_text, shift_amount, cipher_direction):
-  if shift > 26:
-    print('The number to shift cannot be more than 26. Please try again.')
-    sys.exit()
-    
+  # We could use an error to show that the shift amount must be 26 or less or we could
+  # if shift_amount > 26:
+  #   print('The number to shift cannot be more than 26. Please try again.')
+  #   sys.exit()
+      
+  # change the shift to this
+  shift_amount = shift_amount % 26
+      
   alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
   end_text = ""
   if cipher_direction == "decode":
     shift_amount *= -1
   for letter in start_text:
-    position = alphabet.index(letter)
-    new_position = position + shift_amount
-    if new_position > 26:
-      new_position -= 26
-    if new_position < 0:
-      new_position += 26
-    end_text += alphabet[new_position]
+    in_alphabet = alphabet.count(letter)
+    if in_alphabet > 0:
+      position = alphabet.index(letter)
+      new_position = position + shift_amount
+      if new_position > 26:
+        new_position -= 26
+      if new_position < 0:
+        new_position += 26
+      end_text += alphabet[new_position]
+    if in_alphabet <= 0:
+      end_text += letter
   print(f"The {cipher_direction}d text is {end_text}")
-  
+
+
 caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
-  
+
 # This is how I did the program, which works.  
 
 # def caesar_cipher():
