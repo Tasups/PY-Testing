@@ -1,5 +1,7 @@
 # AUCTION APPLICATION
 
+import sys, subprocess
+
 # GAVEL ASCI ART
 
 gavel = '''
@@ -11,10 +13,55 @@ gavel = '''
                           |       |_| |_             _| |_..-'
                           |_______| '-' `'---------'` '-'
                           )"""""""(
-                         /_________\
-                         
+                         /         \\
+                        /___________\\
                        .-------------.
-                      /_______________\
+                      /_______________\\
 '''
 
+
 print(gavel)
+print("Welcome to the Blind Auction Program.")
+
+# the dictionary to store the names and bids
+bids_dic = {}
+
+# to declare the winner
+def blind_auction():
+  highest_bid = 0
+  winner = ""
+  for bidder in bids_dic:
+    current_bid = bids_dic[bidder]
+    if current_bid > highest_bid:
+      highest_bid = current_bid
+      winner = bidder
+  print(f"The winner is {winner} with a bid of ${highest_bid}! Congatulations {winner}!!")
+
+
+# to create true state so that the bidding won't stop until someone enters "no"
+should_continue = True
+
+# the actual bidding process
+while should_continue:
+  bidder = input("Please enter your name: ")
+  amount = int(input("Please enter your bid: "))
+  bids_dic[bidder] = amount
+  go_again = input("Is there another bidder? ")
+  subprocess.run('clear')
+  if go_again == "no":
+    should_continue = False
+    subprocess.run('clear')
+    blind_auction()
+    
+  
+# while should_continue:
+#   print("THE CAESAR CYPHER ENCODER/DECODER")
+#   direction = input('Type "encode" to encrypt or "decode" to decrypt a message.\n')
+#   text =  input('Type your message:\n').lower()
+#   shift = int(input('Type the number to shift:\n'))
+#   shift = shift % 26
+#   caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+#   go_again = input("Would you like to run the program again? Type 'yes' or 'no'.\n")
+#   if go_again == "no":
+#     print("Goodbye")
+#     should_continue = False
