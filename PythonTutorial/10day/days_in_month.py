@@ -1,5 +1,6 @@
 
 def is_leap(year):
+  """determines if the year input is a leap year and returns true if it is and false if it is not"""
   if year % 4 == 0:
     if year % 100 != 0:
       return True
@@ -8,7 +9,6 @@ def is_leap(year):
         return True
   else:
     return False
-  
 
 def days_in_month(year, month):
   total = 0
