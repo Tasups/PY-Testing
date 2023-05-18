@@ -1,4 +1,3 @@
-# Step 1 Hangman Project
 
 import random
 from word_list import words
@@ -24,10 +23,10 @@ while "_" in display and player_lives != 0:
     print("You've already guessed that letter. Please guess again.")
     
   if guess not in letters_guessed:
+    current_result = ""
     letters_guessed.append(guess)
     for position in range(len(chosen_word)):
       letter = chosen_word[position]
-      #print(f"Current position: {position}\nCurrent letter: {letter}\nLetter guessed: {guess}")
       if letter == guess:
         display[position] = letter
         current_result = " ".join(display)
@@ -35,23 +34,19 @@ while "_" in display and player_lives != 0:
     print(current_result)
     print('''\n________________''')
     
-  if guess not in chosen_word:
-    player_lives -= 1
-    if player_lives == 0:
-      print(stages[player_lives])
-      print("You lose!")
-    else:
-      print("______________")
-      print("Your guess was wrong. Please try again.")
-      print(stages[player_lives])
+    if guess not in chosen_word and guess not in letters_guessed:
+      player_lives -= 1
+      if player_lives == 0:
+        print(stages[player_lives])
+        print("You lose!")
+      else:
+        print("______________")
+        print("Your guess was wrong. Please try again.")
+        print(stages[player_lives])
   
 if player_lives > 0:  
   result = "".join(display)
   print(f"The solution is {result}\nYou won!")
-
-  
-    
-
 
 # index = 0
 

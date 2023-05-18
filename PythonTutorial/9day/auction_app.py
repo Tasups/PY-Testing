@@ -53,15 +53,3 @@ while should_continue:
     subprocess.run('clear')
     blind_auction()
     
-  
-# while should_continue:
-#   print("THE CAESAR CYPHER ENCODER/DECODER")
-#   direction = input('Type "encode" to encrypt or "decode" to decrypt a message.\n')
-#   text =  input('Type your message:\n').lower()
-#   shift = int(input('Type the number to shift:\n'))
-#   shift = shift % 26
-#   caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
-#   go_again = input("Would you like to run the program again? Type 'yes' or 'no'.\n")
-#   if go_again == "no":
-#     print("Goodbye")
-#     should_continue = False
